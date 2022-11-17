@@ -61,6 +61,7 @@ class _ToDoListState extends State<ToDoList> {
                     onPressed: () {
                       setState(() {
                         Navigator.pop(context);
+                        _inputController.clear();
                       });
                     })
               ]);
