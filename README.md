@@ -2,21 +2,15 @@
 
 A Flutter Demo project.
 
-## Edit Me
+A basic To-Do list that allows the user to input a task that is needed and if the task is particularly important, the user can hit the heart button to push it to the top of the list of items.
 
-This is the file you should edit to describe your modified app.
+This app is for anyone and functions as a basic to-do list.
 
-A README.md is written using [Markdown](https://www.markdownguide.org/), a simple language for formatting text that can be rendered as a web page. This README.md information will be displayed on the GitHub main page for your repository. Here is a resource specifically for Markdown syntax and GitHub.
+The screen that the app opens on with one task.
+![Default_todolist_screen](https://user-images.githubusercontent.com/104210666/205176562-7e025f3d-1597-4739-9b40-44df385fe546.PNG)
 
-* <https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax>
+Adding a new item screen
+![add_new_item_screen](https://user-images.githubusercontent.com/104210666/205176640-5b9ac140-d99e-463d-ab80-58a9ef7a542b.PNG)
 
-Now, with a text editor on your cloned repository, or by clicking on the edit icon ✏️ on the main github.com page for your forked repository, edit the README.md file in the root directory to provide details about your app’s functionality. Be sure to follow the guidelines of the GitHub documentation on what to include in your README.md file.
-
-* <https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes>
-
-The most important pieces to include right now are
-
-* Who is the audience for this app
-* What the app does
-* Why the app is useful
-* Multiple Screenshots of your app
+The heart button in action
+![heart_button_in_action](https://user-images.githubusercontent.com/104210666/205177303-60bbe6dd-2cd1-4011-a80f-2238ec696616.PNG)
