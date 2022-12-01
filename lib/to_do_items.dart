@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:to_dont_list/assets/icon.dart';
-
+import 'assets/custom_icon_icons.dart';
 
 class Item {
   const Item({required this.name});
@@ -12,7 +12,8 @@ class Item {
   }
 }
 
-typedef ToDoListChangedCallback = Function(Item item, bool completed);
+typedef ToDoListChangedCallback = Function(
+    Item item, bool completed, bool favorited, String action);
 typedef ToDoListRemovedCallback = Function(Item item);
 
 class ToDoListItem extends StatelessWidget {
@@ -20,11 +21,13 @@ class ToDoListItem extends StatelessWidget {
       {required this.item,
       required this.completed,
       required this.onListChanged,
-      required this.onDeleteItem})
+      required this.onDeleteItem,
+      required this.favorited})
       : super(key: ObjectKey(item));
 
   final Item item;
   final bool completed;
+  final bool favorited;
   final ToDoListChangedCallback onListChanged;
   final ToDoListRemovedCallback onDeleteItem;
 
@@ -33,7 +36,6 @@ class ToDoListItem extends StatelessWidget {
     // parts of the tree can have different themes.
     // The BuildContext indicates where the build is
     // taking place and therefore which theme to use.
-
     return completed //
         ? Colors.black54
         : Theme.of(context).primaryColor;
@@ -51,22 +53,32 @@ class ToDoListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      onTap: () {
-        onListChanged(item, completed);
-      },
-      onLongPress: completed
-          ? () {
-              onDeleteItem(item);
-            }
-          : null,
-      leading: CircleAvatar(
-        backgroundColor: _getColor(context),
-        child: const Icon(MyFlutterApp.cat),
-      ),
-      title: Text(
-        item.name,
-        style: _getTextStyle(context),
-      ),
-    );
+        onTap: () {
+          onListChanged(item, completed, favorited, "completed");
+        },
+        onLongPress: completed
+            ? () {
+                onDeleteItem(item);
+              }
+            : null,
+        leading: CircleAvatar(
+          // added cool donut feature
+          backgroundColor: _getColor(context),
+          child: const Icon(CustomIcon.donut),
+          //child: const Icon(CustomIcon.donut),
+          //MyFlutterApp.cat),
+        ),
+        title: Text(
+          item.name,
+          style: _getTextStyle(context),
+        ),
+        trailing: IconButton(
+            key: Key('favButton'),
+            icon: Icon(Icons.favorite),
+            onPressed: () {
+              onListChanged(item, completed, favorited, "favorited");
+            },
+            iconSize: 24,
+            color: favorited ? Colors.red[900] : Colors.grey[500]));
   }
 }
