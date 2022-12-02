@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'assets/custom_icon_icons.dart';
+
 class Item {
   const Item({required this.name});
 
@@ -61,7 +63,7 @@ class ToDoListItem extends StatelessWidget {
             : null,
         leading: CircleAvatar(
           backgroundColor: _getColor(context),
-          child: Text(item.abbrev()),
+          child: Icon(CustomIcon.donut),
         ),
         title: Text(
           item.name,
@@ -76,4 +78,5 @@ class ToDoListItem extends StatelessWidget {
             iconSize: 24,
             color: favorited ? Colors.red[900] : Colors.grey[500]));
   }
+  // adding this comment to make sure it is tracking my changes
 }
