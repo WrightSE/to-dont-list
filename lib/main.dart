@@ -23,7 +23,15 @@ class _ToDoListState extends State<ToDoList> {
         context: context,
         builder: (context) {
           return AlertDialog(
-              title: const Text('Item To Add'),
+              title: const Text(
+                'Item To Add',
+                style: TextStyle(
+                  fontFamily: 'Pacifico',
+                  fontSize: 40.0,
+                  color: Colors.orange,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
               content: TextField(
                 onChanged: (value) {
                   setState(() {
@@ -141,7 +149,15 @@ class _ToDoListState extends State<ToDoList> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('To Do List'),
+          title: const Text(
+            'To Do List',
+            style: TextStyle(
+              fontFamily: 'Pacifico',
+              fontSize: 40.0,
+              color: Colors.orange,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
         ),
         body: ListView(
           padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -164,8 +180,16 @@ class _ToDoListState extends State<ToDoList> {
 }
 
 void main() {
-  runApp(const MaterialApp(
+  runApp(MaterialApp(
     title: 'To Do List',
+    theme: ThemeData(
+      brightness: Brightness.light,
+    ),
+    darkTheme: ThemeData(
+      brightness: Brightness.dark,
+    ),
+    themeMode: ThemeMode.dark,
     home: ToDoList(),
   ));
 }
+// added cool dark theme that could be toggled if a little more work went into it 
